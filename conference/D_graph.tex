@@ -1,0 +1,64 @@
+\section{Moteur graphique}
+
+\subsection{Rôle}
+\begin{frame}{Moteur graphique}
+  \begin{block}{Rôle}
+    \begin{itemize}
+      \item La sortie principale
+      \item Fourni au joueur un apperçu sur l’état du jeu
+      \item Doit être fiable et précis
+      \item Apporte une partie du fun
+    \end{itemize}
+  \end{block}
+  % Pour un jeu, la partie la plus importante c’est le moteur graphique, c’est
+  % celle qui donne le premier apperçu de votre jeu.
+  % Pour le joueur c’est le principal moyen, si ce n’est le seul, de savoir où
+  % il est en est et quel est le résultat de ses actions, ce moteur doit être
+  % fiable et réactif.
+  % Une partie du fun est transmis par lui, des effets kikoo et des machins
+  % qui explosent de partout c’est toujours marrant.
+\end{frame}
+
+\subsection{Fonctionnement général}
+\begin{frame}
+  \begin{block}{While true}
+    \begin{itemize}
+      \item Les données du jeu doivent être mises à jour en permanence
+      \item Une solution : appeler une fonction de mise à jour en boucle
+      plusieurs dizaine de fois par seconde.
+      \item De même pour les graphismes~: image à l'écran raffraichie
+      plusieurs dizaine de fois par seconde.
+      \item Séparation données mémoire du jeu / affichage.
+    \end{itemize}
+  \end{block}
+\end{frame}
+% un while true géant
+% séparation update,données en mémoire/draw, trucs affichés
+% sprite, tileset, double buffering, 2D basics
+% 3D basics
+
+\subsection{Frameworks et bibliothèques}
+\begin{frame}
+  \begin{block}{Bibliothèques et frameworks}
+    \begin{itemize}
+      \item XNA
+      \item DirectX
+      \item SDL
+      \item OpenGL
+      \item NSREGX
+      \item ...
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\subsection{XNA}
+
+\begin{frame}
+  Fait le café.
+  % organisation : update, draw
+  % graphisme 2D : spritebatch + content pipeline
+  % graphisme 3D : ?
+  % interractions : clavier souris
+  % son : beurk, au dernières nouvelles
+  % réseau : noooooon pas le Windows Live Game
+\end{frame}
