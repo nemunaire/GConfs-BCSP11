@@ -8,43 +8,48 @@
 \subsection{Généralités}
 \begin{frame}{Pourquoi versionner~?}
   \begin{alertblock}{Concrètement}
-    SVN vous permet de~:
+    Les gestionnaires de versions vous permettent de~:
     \begin{itemize}
       \item gérer votre code source,
       \item conserver une trace toutes les modifications,
-
       \item revenir en arrière,
       \item travailler à plusieurs en partageant le code intelligement.
     \end{itemize}
   \end{alertblock}
   \begin{center}
-    \includegraphics[scale=3]{images/logo_svn}
+    \includegraphics[scale=3]{images/logo_svn} ~
+    \includegraphics[scale=0.7]{images/logo_git} ~
+    \includegraphics[scale=0.6]{images/logo_hg}
   \end{center}
   % Versionnement : permet de garder un trace de toutes les modifications
   % effectuées sur le code source. Possibilité de revenir en arrière,
   % travailler tous sur les même fichier sans conflit. Ajouter des
   % commentaires aux changements.
-  % TODO: virer les référence à SVN là, c’est valables pour tous les VCS,
-  % l’introduit juste après, « le plus simple ... » ?
+  % Il en existe plusieurs qui peuvent être assez différents les uns des
+  % autres. On va s’intéresser à SVN car il est relativement simple et est
+  % très répandu.
 \end{frame}
 
 \subsection{Utilisation typique}
 
 \begin{frame}
+  \texttt{checkout}
   \begin{center}
     \includegraphics[scale=0.52]{images/1-CheckOut.png}
+  \end{center}
 	% Présentation du dépôt avec les trois fichier versionnés, du numéro de
 	% révision. Checkout : récupère tout le contenu du dépot sous la dernière
 	% version disponible.
-  \end{center}
 \end{frame}
 
 \begin{frame}
+  \texttt{checkout}
   \begin{center}
+    \vspace{-12pt}
     \includegraphics[scale=0.3]{images/2-CheckOut.png}
+  \end{center}
 	% Checkout fini : ils ont tous le contenu du dépôt, ils ont la dernière
 	% version, révision 4.
-  \end{center}
 \end{frame}
 
 \begin{frame}
@@ -57,131 +62,152 @@
 \end{frame}
 
 \begin{frame}
+  \texttt{commit}
   \begin{center}
+    \vspace{-12pt}
     \includegraphics[scale=0.3]{images/4-Commit1.png}
+  \end{center}
 	% Quand le premier a fini son travaille, ça compile, ça marche, il va
 	% commit : il va envoyer ses modifications sur le dépôt. Lui et le dépôt
 	% passent en révision 5, les autres restent en révision 4. Les autres sont
 	% occupés ailleurs.
-  \end{center}
 \end{frame}
 
 \begin{frame}
+  \texttt{update}
   \begin{center}
+    \vspace{-12pt}
     \includegraphics[scale=0.3]{images/5-Update.png}
+  \end{center}
 	% Le vieux revient et veux envoyer son travail. Mais avant de l’envoyer,
 	% il fait un update : il récupère les modifications récentes depuis le
 	% dépôt. Met à jour juste les fichiers modifiés sur le dépôt, ses
 	% modifications locales ne changent pas.
-  \end{center}
 \end{frame}
 
 \begin{frame}
+  \texttt{commit}
   \begin{center}
+    \vspace{-12pt}
     \includegraphics[scale=0.3]{images/6-Commit2.png}
+  \end{center}
 	% Le vieux envoie sont travail, le serveur passe en révision 6, le jeune
 	% et la fille ne sont pas au courant.
 	% La fille est passé sur Google Buzz.
-  \end{center}
 \end{frame}
 
 \begin{frame}
+  \texttt{delete}
   \begin{center}
+    \vspace{-12pt}
     \includegraphics[scale=0.3]{images/7-Work.png}
+  \end{center}
 	% Elle décide de se mettre au travail et décide de supprimer game.cs par
 	% ce que ça ne sert à rien selon elle.
 	% Le vieux fait des recherches sérieuses sur Google pour le projet.
-  \end{center}
 \end{frame}
 
 \begin{frame}
+  \texttt{commit}
   \begin{center}
+    \vspace{-12pt}
     \includegraphics[scale=0.3]{images/8-Commit3.png}
+  \end{center}
 	% La fille essaie de commit comme une bourrine. Erreur ! elle a pas
 	% update, le serveur la bloque et lui dit qu’elle n’est pas à jour.
-  \end{center}
 \end{frame}
 
 \begin{frame}
+  \texttt{update}
   \begin{center}
+    \vspace{-12pt}
     \includegraphics[scale=0.3]{images/9-Update_merge.png}
+  \end{center}
 	% Donc elle commence par update, ça l’amène à la révision 6, tout en
 	% gardant ses modifications locales.
 	% Et SVN merge bar.cs, ça fusionne les modifications récentes enregistrées
 	% par le dépôt ainsi que ses modifications locales et si les deux sont
 	% compatibles, il arrive à le faire proprement.
-  \end{center}
 \end{frame}
 
 \begin{frame}
+  \texttt{commit}
   \begin{center}
+    \vspace{-12pt}
     \includegraphics[scale=0.3]{images/10-Commit4.png}
+  \end{center}
 	% Elle commit tout son basard ! game.cs est conservé sur le dépôt par ce
 	% qu’il reste une trace de tous les fichiers même supprimé, mais il est
 	% n’est pas présent dans la révision actuelle.
-  \end{center}
 \end{frame}
 
 \begin{frame}
+  \texttt{update}
   \begin{center}
+    \vspace{-12pt}
     \includegraphics[scale=0.3]{images/11-Update.png}
+  \end{center}
 	% Elle est toute contente (imiter la fille « wahoo j’ai bien travaillé ! »),
 	% et dis aux autres d’update. Ils le font et n’ont plus de game.cs
-  \end{center}
 \end{frame}
 
 \begin{frame}
   \begin{center}
     \includegraphics[scale=0.3]{images/12-Work.png}
+  \end{center}
 	% De retour au travail : elle change un truc dans bar.cs et va sur tweeter.
 	% Mais ce qu’elle a commit ne compilait pas. Il faut toujours commit un
 	% truc qui marche !
 	% Le jeune résout le souçit.
-  \end{center}
 \end{frame}
 
 \begin{frame}
+  \texttt{commit}
   \begin{center}
+    \vspace{-12pt}
     \includegraphics[scale=0.3]{images/13-Commit4.png}
-	% Il commit son fix des conneries de la fille.
   \end{center}
+	% Il commit son fix des conneries de la fille.
 \end{frame}
 
 \begin{frame}
+  \texttt{update}
   \begin{center}
+    \vspace{-12pt}
     \includegraphics[scale=0.3]{images/14-Conflict.png}
+  \end{center}
 	% La fille veut commiter les changements qu’elle avait fait avant sa
 	% session tweeter sur bar.cs, mais a retenu la leçon et update avant. Mais
 	% là il y a conflit sur bar.cs, c’est à dire que SVN n’a pas réussie à
 	% fusionner leur deux travail, probablement par ce que le jeune et la
 	% fille vienne de modifier les même lignes de code.
-  \end{center}
 \end{frame}
 
 \begin{frame}
+  \texttt{resolve}\\
+  \texttt{commit}
   \begin{center}
+    \vspace{-24pt}
     \includegraphics[scale=0.3]{images/15-Resolved.png}
+  \end{center}
 	% Elle résout le contenu d’une façon ou d’une autre : mon truc c’est de la
 	% merde, je vais prendre la version qui est sur le dépôt, mon truc c’est
 	% le meilleur, les autres c’est des gros cons ou alors essayer de comparer
 	% les deux versions et de fusionner à la main (très peu probable pour
 	% elle).
 	% Elle indique le conflit comme «resolved» et envoie le résultat.
-  \end{center}
 \end{frame}
 
 \begin{frame}
   \begin{center}
     \includegraphics[scale=0.3]{images/16-Back1.png}
+  \end{center}
 	% Le vieux a fini sa recherche et veut travailler sur game.cs mais il se
 	% rend compte qu’il a été supprimé. Mais SVN c’est trop bien, il va
 	% pouvoir aller récupérer le fichier !
-  \end{center}
 \end{frame}
 
 % TODO : peut être ajouter un exemple de revert ?
-% TODO: ajouter le nom des principales commandes en gros en haut à chaque fois
-% qu’elles sont illustrées dans les exemples.
 
 \subsection{Commandes usuelles}
 
@@ -205,7 +231,8 @@
   % Update : récupère les mise à jour.
   % Commit : envoyer ses modifications.
   % Add / delete : ajouter et supprimer des fichiers au dépôt. Il faut commit
-  % après et vos fichiers seront ajouter au versionnement.
+  % après et vos fichiers seront ajouter au versionnement ou supprimé. Mais
+  % SVN gardent les fichier supprimés, il ne seront juste pas mis à jour.
 \end{frame}
 
 
@@ -217,10 +244,10 @@
   \end{center}
   \begin{alertblock}{TortoiseSVN}
     \begin{itemize}
-    \item S'intégre parfaitement à Windows,
-    \item Ajout d'action sur les fichiers et dossiers (clic droit),
+      \item S'intégre parfaitement à Windows,
+      \item Ajout d'action sur les fichiers et dossiers (clic droit),
       \item Modification visuelle pour les dossiers et fichiers sous versionnement.
-      \end{itemize}
+    \end{itemize}
 	  % Permet d’avoir une interface complètement intégrée et simple
 	  % d’utilisation, avec de gros boutons.
     \end{alertblock}
@@ -252,11 +279,11 @@
   \begin{alertblock}{Update}
     Effectuer des updates régulièrement.
   \end{alertblock}
-  % Update très régulièrement
+  % Update très régulièrement et *toujours* avant de commit.
   \begin{alertblock}{Commit}
     Commiter \textbf{régulièrement} du code qui \textbf{compile}.
   \end{alertblock}
-  % On update toujours avant de commit et quand on commit on fait toujours
+  % Quand on commit, on fait toujours
   % attention que notre merde fonctionne, sinon vous allez être détesté par
   % votre groupe.
   \begin{alertblock}{Add}
@@ -280,7 +307,6 @@
     \item GoogleCode
     \item SourceForge
     \item Assembla
-    \item svn.pc-show.com
     \end{itemize}
 	% Vous pouvez trouver des dépôt gratuit chez ces fournisseurs. Ils
 	% fournissent tous de bonnes interfaces. Googlecode et Sourceforge sont
